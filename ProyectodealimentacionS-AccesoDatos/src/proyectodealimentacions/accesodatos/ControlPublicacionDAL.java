@@ -9,6 +9,6 @@ package proyectodealimentacions.accesodatos;
  *
  * @author Alumno
  */
-public class Recetas {
+public class ControlPublicacionDAL {
     
 }
