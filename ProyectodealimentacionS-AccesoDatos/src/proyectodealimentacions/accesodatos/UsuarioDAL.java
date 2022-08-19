@@ -19,6 +19,7 @@ public class UsuarioDAL {
         } catch (java.security.NoSuchAlgorithmException ex) {
             throw ex;
         }
+     }
          static String obtenerCampos() {
         return "u.Id, u.IdRol, u.Nombre, u.Apellido, u.Login, u.Estatus, u.FechaRegistro";
     }
@@ -90,7 +91,7 @@ public class UsuarioDAL {
                     ps.setString(3, pUsuario.getApellido()); // agregar el parametro a la consulta donde estan el simbolo "?" #3 
                     ps.setString(4, pUsuario.getLogin()); // agregar el parametro a la consulta donde estan el simbolo "?" #4 
                     ps.setString(5, encriptarMD5(pUsuario.getPassword())); // agregar el parametro a la consulta donde estan el simbolo "?" #5 
-                    ps.setByte(6, pUsuario.getEstatus()); // agregar el parametro a la consulta donde estan el simbolo "?" #6 
+                     // agregar el parametro a la consulta donde estan el simbolo "?" #6 
                     ps.setDate(7, java.sql.Date.valueOf(LocalDate.now())); // agregar el parametro a la consulta donde estan el simbolo "?" #7 
                     result = ps.executeUpdate(); // ejecutar la consulta INSERT en la base de datos
                     ps.close(); // cerrar el PreparedStatement
@@ -121,7 +122,7 @@ public class UsuarioDAL {
                     ps.setString(2, pUsuario.getNombre()); // agregar el parametro a la consulta donde estan el simbolo ? #2  
                     ps.setString(3, pUsuario.getApellido()); // agregar el parametro a la consulta donde estan el simbolo ? #3  
                     ps.setString(4, pUsuario.getLogin()); // agregar el parametro a la consulta donde estan el simbolo ? #4  
-                    ps.setByte(5, pUsuario.getEstatus()); // agregar el parametro a la consulta donde estan el simbolo ? #5  
+                     // agregar el parametro a la consulta donde estan el simbolo ? #5  
                     ps.setInt(6, pUsuario.getId()); // agregar el parametro a la consulta donde estan el simbolo ? #6  
                     result = ps.executeUpdate(); // ejecutar la consulta UPDATE en la base de datos
                     ps.close(); // cerrar el PreparedStatement
@@ -171,8 +172,6 @@ static int asignarDatosResultSet(Usuario pUsuario, ResultSet pResultSet, int pIn
         pUsuario.setApellido(pResultSet.getString(pIndex)); // index 4
         pIndex++;
         pUsuario.setLogin(pResultSet.getString(pIndex)); // index 5
-        pIndex++;
-        pUsuario.setEstatus(pResultSet.getByte(pIndex)); // index 6
         pIndex++;
         pUsuario.setFechaRegistro(pResultSet.getDate(pIndex).toLocalDate()); // index 7
         return pIndex;
@@ -298,14 +297,7 @@ static int asignarDatosResultSet(Usuario pUsuario, ResultSet pResultSet, int pIn
                 statement.setString(pUtilQuery.getNumWhere(), pUsuario.getLogin());
             }
         }
-        // Verificar si se va incluir el campo Estatus en el filtro de la consulta SELECT de la tabla de Usuario
-        if (pUsuario.getEstatus() > 0) {
-            pUtilQuery.AgregarWhereAnd(" u.Estatus=? "); // agregar el campo Estatus al filtro de la consulta SELECT y agregar en el WHERE o AND
-            if (statement != null) {
-                 // agregar el parametro del campo Estatus a la consulta SELECT de la tabla de Usuario
-                statement.setInt(pUtilQuery.getNumWhere(), pUsuario.getEstatus());
-            }
-        }
+        
     }
        public static ArrayList<Usuario> buscar(Usuario pUsuario) throws Exception {
         ArrayList<Usuario> usuarios = new ArrayList();
@@ -344,7 +336,7 @@ static int asignarDatosResultSet(Usuario pUsuario, ResultSet pResultSet, int pIn
             try (PreparedStatement ps = comunDB.createPreparedStatement(conn, sql);) { // Obtener el PreparedStatement desde la clase ComunDB
                 ps.setString(1, pUsuario.getLogin()); // Agregar el parametro a la consulta donde estan el simbolo ? #1 
                 ps.setString(2, password); // Agregar el parametro a la consulta donde estan el simbolo ? #2 
-                ps.setByte(3, Usuario.EstatusUsuario.ACTIVO); // Agregar el parametro a la consulta donde estan el simbolo ? #3 
+                 // Agregar el parametro a la consulta donde estan el simbolo ? #3 
                 obtenerDatos(ps, usuarios); // Llenar el ArrayList de Usuario con las fila que devolvera la consulta SELECT a la tabla de Usuario
                 ps.close(); // Cerrar el PreparedStatement
             } catch (SQLException ex) {
@@ -415,7 +407,7 @@ public static ArrayList<Usuario> buscarIncluirRol(Usuario pUsuario) throws Excep
                 utilQuery.setSQL(null);
                 utilQuery.setNumWhere(0);
                 querySelect(pUsuario, utilQuery); // Asignar los parametros al PreparedStatement de la consulta SELECT de la tabla de Usuario
-                obtenerDatosIncluirRol(ps, usuarios);// Llenar el ArrayList de Usuario con las fila que devolvera la consulta SELECT a la tabla de Usuario
+                ObtenerDatosIncluirRol(ps, usuarios);// Llenar el ArrayList de Usuario con las fila que devolvera la consulta SELECT a la tabla de Usuario
                 ps.close(); // Cerrar el PreparedStatement
             } catch (SQLException ex) {
                 throw ex;// Enviar al siguiente metodo el error al ejecutar PreparedStatement en el caso que suceda
