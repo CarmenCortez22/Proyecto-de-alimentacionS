@@ -6,3 +6,5 @@ nbconstruir /
 dist /
 nbdist /
 .nb-gradle /
+/ProyectodealimentacionS-AccesoDatos/build/
+/ProyectodealimentacionS-EntidadesDeNegocio/build/
