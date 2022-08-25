@@ -11,10 +11,7 @@ import java.util.ArrayList;
 import proyectoalimentacion.appweb.utils.SessionUser;
 import proyectoalimentacion.appweb.utils.Utilidad;
 import proyectodealimentacions.accesodatos.RecetasDAL;
-import proyectodealimentacions.accesodatos.RolDAL;
 import proyectodealimentacions.entidadesdenegocio.Recetas;
-import proyectodealimentacions.entidadesdenegocio.Rol;
-
 @WebServlet(name = "RecetasServlet", urlPatterns = {"/RecetasServlet"})
 public class RecetasServlet extends HttpServlet {
 
