@@ -1,7 +1,6 @@
 package proyectoalimentacion.appweb.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +11,7 @@ import proyectoalimentacion.appweb.utils.SessionUser;
 import proyectoalimentacion.appweb.utils.Utilidad;
 import proyectodealimentacions.accesodatos.RecetasDAL;
 import proyectodealimentacions.entidadesdenegocio.Recetas;
+
 @WebServlet(name = "RecetasServlet", urlPatterns = {"/RecetasServlet"})
 public class RecetasServlet extends HttpServlet {
 
