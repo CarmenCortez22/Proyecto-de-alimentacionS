@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,8 @@
         <title>Crear Rol</title>
     </head>
     <body>
-         <jsp:include page="/Views/Shared/headerBody.jsp" />  
+        
+        <jsp:include page="/Views/Shared/headerBody.jsp" />  
         <main class="container">   
             <h5>Crear Rol</h5>
             <form action="Rol" method="post">
