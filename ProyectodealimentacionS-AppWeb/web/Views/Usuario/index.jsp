@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="proyectoalimentacion.entidadeseenegocio.Usuario"%>
-<%@page import="proyectoalimentacion.entidadeseenegocio.Rol"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Usuario"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Rol"%>
 <%@page import="java.util.ArrayList"%>
 <% ArrayList<Usuario> usuarios = (ArrayList<Usuario>) request.getAttribute("usuarios");
     int numPage = 1;

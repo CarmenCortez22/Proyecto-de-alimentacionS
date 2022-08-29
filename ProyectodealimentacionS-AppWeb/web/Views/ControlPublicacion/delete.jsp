@@ -1,17 +1,38 @@
-<%-- 
-    Document   : delete
-    Created on : 08-22-2022, 04:32:31 PM
-    Author     : Alumno
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.ControlPublicacion"%>
+<% ControlPublicacion control = (ControlPublicacion) request.getAttribute("control");%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <jsp:include page="/Views/Shared/title.jsp" />
+        <title>Eliminar Publicacion</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="/Views/Shared/headerBody.jsp" />  
+        <main class="container">   
+            <h5>Eliminar Publicacion</h5>          
+            <form action="ControlPublicacion" method="post">
+                <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">   
+                <input type="hidden" name="id" value="<%=control.getId()%>">   
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                    <input disabled  id="txtNombre" type="text" value="<%=control.getNombre()%>">
+                    <label for="txtNombre">Nombre</label>
+                </div>                                  
+                    <div class="input-field col l4 s12">
+                    <input disabled  id="txtDescripcion" type="text" value="<%=control.getDescripcion()%>">
+                    <label for="txtDescripcion">Descripcion</label>
+                </div>
+                    </div>
+                <div class="row">
+                    <div class="col l12 s12">
+                        <button type="sutmit" class="waves-effect waves-light btn blue"><i class="material-icons right">delete</i>Eliminar</button>
+                        <a href="ControlPublicacion" class="waves-effect waves-light btn blue"><i class="material-icons right">list</i>Cancelar</a>                          
+                    </div>
+                </div>
+            </form>          
+        </main>
+        <jsp:include page="/Views/Shared/footerBody.jsp" />
     </body>
 </html>

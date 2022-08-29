@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="proyectoalimentacion.entidadeseenegocio.Rol"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Recetas"%>
 <% Rol rol = (Rol) request.getAttribute("rol");%>
 <!DOCTYPE html>
 <html>

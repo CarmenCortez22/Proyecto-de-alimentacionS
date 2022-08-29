@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="proyectoalimentacion.entidadeseenegocio.Rol"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Rol"%>
 <%@page import="java.util.ArrayList"%>
 
 <% ArrayList<Rol> roles = (ArrayList<Rol>) request.getAttribute("roles");
@@ -87,7 +87,7 @@
                                 <%}%>                                                       
                             </tbody>
                         </table>
-                    </div>                  
+                    </div>      >            
                 </div>
             </div>
             <div class="row">

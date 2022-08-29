@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="proyectoalimentacion.entidadesdenegocio.Usuario"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Usuario"%>
 <% Usuario usuario = (Usuario) request.getAttribute("usuario");%>
 <!DOCTYPE html>
 <html>

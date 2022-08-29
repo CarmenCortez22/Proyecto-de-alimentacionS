@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="proyectoalimentacion.entidadeseenegocio.Rol"%>
-<%@page import="proyectoalimentacion.accesodatos.RolDAL"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Rol"%>
+<%@page import="proyectoalimentacions.accesodatos.RolDAL"%>
 <%@page import="java.util.ArrayList"%>
 <% ArrayList<Rol> roles = RolDAL.obtenerTodos();
     int id = Integer.parseInt(request.getParameter("id"));

@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="proyectoalimentacion.entidadesdenegocio.Usuario"%>
+<%@page import="proyectodealimentacions.entidadesdenegocio.Usuario"%>
 <!DOCTYPE html>
 <html>
     <head>
